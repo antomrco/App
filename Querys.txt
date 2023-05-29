@@ -1,0 +1,43 @@
+
+1-Obtener la información de los vehículos junto con los datos de sus propietarios:
+
+SELECT v.idvehiculo, v.marca, v.modelo, v.color, v.patente, c.nombre, c.apellido
+FROM Vehiculos v
+INNER JOIN Clientes c ON v.idcliente = c.idcliente;
+
+2-Obtener los repuestos utilizados en cada vehículo y su precio:
+
+SELECT v.marca, v.modelo, r.repuesto, r.precio
+FROM Vehiculos v
+INNER JOIN Repuestos r ON v.idvehiculo = r.idvehiculo;
+
+3-Obtener los clientes que han realizado presupuestos junto con la fecha y el monto de cada presupuesto:
+
+SELECT c.nombre, c.apellido, p.fecha, p.monto
+FROM Clientes c
+INNER JOIN Presupuestos p ON c.idcliente = p.idcliente;
+
+
+4-Obtener los clientes y sus vehículos junto con la fecha y el monto de los presupuestos realizados:
+
+SELECT c.nombre, c.apellido, v.marca, v.modelo, p.fecha, p.monto
+FROM Clientes c
+INNER JOIN Vehiculos v ON c.idcliente = v.idcliente
+INNER JOIN Presupuestos p ON c.idcliente = p.idcliente;
+
+5-Obtener los vehículos, sus repuestos y los clientes propietarios:
+
+SELECT v.marca, v.modelo, r.repuesto, c.nombre, c.apellido
+FROM Vehiculos v
+INNER JOIN Repuestos r ON v.idvehiculo = r.idvehiculo
+INNER JOIN Clientes c ON v.idcliente = c.idcliente;
+
+6-Obtener los clientes que han realizado presupuestos y los repuestos utilizados en cada presupuesto:
+
+SELECT c.nombre, c.apellido, r.repuesto
+FROM Clientes c
+INNER JOIN Presupuestos p ON c.idcliente = p.idcliente
+INNER JOIN Repuestos r ON p.idrepuesto = r.idrepuesto;
+
+
+
